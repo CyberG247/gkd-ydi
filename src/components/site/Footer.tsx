@@ -109,9 +109,21 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page flex flex-col gap-2 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 {ORG.name}. All rights reserved.</p>
-          <p>A registered non-governmental organisation working in Northeast Nigeria.</p>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <p>A registered non-governmental organisation in Northeast Nigeria.</p>
+            <span className="hidden text-white/30 sm:inline">&middot;</span>
+            <a
+              href="https://www.innovatech-ng.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-white/75 transition-colors hover:text-yellow hover:underline underline-offset-2"
+              title="Visit InnovaTech Consultancy Limited"
+            >
+              Crafted &amp; Designed by InnovaTech
+            </a>
+          </div>
         </div>
       </div>
     </footer>
