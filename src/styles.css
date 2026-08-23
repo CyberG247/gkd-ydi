@@ -1,3 +1,4 @@
+@import "@fontsource-variable/inter";
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -5,17 +6,14 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system definition.
+ * GKD-YDI design system.
  *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
+ * Brand palette (from the official logo):
+ *   Deep Navy #023F5E · Yellow #FCBE0B · Blue #085E9B · Green #148F35 · Light Green #E6FFE0
  *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ * All component colors MUST originate from these tokens. To add a new
+ * semantic color: define it under :root, then register it in @theme inline
+ * as --color-<name>: var(--<name>).
  */
 
 @theme inline {
@@ -27,8 +25,8 @@
   --radius-3xl: calc(var(--radius) + 14px);
   --radius-4xl: calc(var(--radius) + 18px);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -73,8 +71,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --shadow-card: 0 1px 2px oklch(0.3498 0.0774 238.89 / 6%), 0 12px 32px -18px oklch(0.3498 0.0774 238.89 / 22%);
-  --shadow-lift: 0 2px 4px oklch(0.3498 0.0774 238.89 / 8%), 0 24px 48px -24px oklch(0.3498 0.0774 238.89 / 32%);
+  --shadow-card: 0 1px 2px rgb(2 63 94 / 6%), 0 12px 32px -18px rgb(2 63 94 / 22%);
+  --shadow-lift: 0 2px 4px rgb(2 63 94 / 8%), 0 24px 48px -24px rgb(2 63 94 / 32%);
 
   --ease-brand: cubic-bezier(0.16, 0.72, 0.29, 1);
 }
@@ -82,46 +80,61 @@
 :root {
   --radius: 0.25rem;
 
-  --navy: oklch(0.3498 0.0774 238.89);
-  --navy-deep: oklch(0.2868 0.0541 237.67);
-  --navy-foreground: oklch(1 0 0);
-  --brand-yellow: oklch(0.8354 0.1699 84.5);
-  --brand-yellow-foreground: oklch(0.2868 0.0541 237.67);
-  --ocean: oklch(0.4698 0.1221 247.75);
-  --ocean-foreground: oklch(1 0 0);
-  --growth: oklch(0.5685 0.1634 146.7);
-  --growth-foreground: oklch(1 0 0);
-  --mist: oklch(0.9774 0.0042 236.5);
-  --leaf-tint: oklch(0.9737 0.0484 139.63);
+  /* Official brand palette */
+  --navy: #023f5e;
+  --navy-deep: #022c42;
+  --navy-foreground: #ffffff;
+  --brand-yellow: #fcbe0b;
+  --brand-yellow-foreground: #022c42;
+  --ocean: #085e9b;
+  --ocean-foreground: #ffffff;
+  --growth: #148f35;
+  --growth-foreground: #ffffff;
+  --mist: #f4f8fa;
+  --leaf-tint: #e6ffe0;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.2868 0.0541 237.67);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2868 0.0541 237.67);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2868 0.0541 237.67);
-  --primary: oklch(0.3498 0.0774 238.89);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.9774 0.0042 236.5);
-  --secondary-foreground: oklch(0.3498 0.0774 238.89);
-  --muted: oklch(0.9774 0.0042 236.5);
-  --muted-foreground: oklch(0.4585 0.0281 239);
-  --accent: oklch(0.9126 0.0152 235.39);
-  --accent-foreground: oklch(0.3498 0.0774 238.89);
-  --destructive: oklch(0.514 0.192 27.3);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9126 0.0152 235.39);
-  --input: oklch(0.8757 0.0179 235);
-  --ring: oklch(0.4698 0.1221 247.75);
+  /* Semantic surfaces & text */
+  --background: #ffffff;
+  --foreground: #022c42;
+  --card: #ffffff;
+  --card-foreground: #022c42;
+  --popover: #ffffff;
+  --popover-foreground: #022c42;
+  --primary: #023f5e;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f8fa;
+  --secondary-foreground: #023f5e;
+  --muted: #f4f8fa;
+  --muted-foreground: #46606e;
+  --accent: #e9f1f6;
+  --accent-foreground: #023f5e;
+  --destructive: #b42318;
+  --destructive-foreground: #ffffff;
+  --border: #dde7ed;
+  --input: #c3d3dc;
+  --ring: #085e9b;
 
-  --sidebar: oklch(0.9774 0.0042 236.5);
-  --sidebar-foreground: oklch(0.2868 0.0541 237.67);
-  --sidebar-primary: oklch(0.3498 0.0774 238.89);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.9126 0.0152 235.39);
-  --sidebar-accent-foreground: oklch(0.3498 0.0774 238.89);
-  --sidebar-border: oklch(0.9126 0.0152 235.39);
-  --sidebar-ring: oklch(0.4698 0.1221 247.75);
+  --sidebar: #f4f8fa;
+  --sidebar-foreground: #022c42;
+  --sidebar-primary: #023f5e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9f1f6;
+  --sidebar-accent-foreground: #023f5e;
+  --sidebar-border: #dde7ed;
+  --sidebar-ring: #085e9b;
+}
+
+/* Fluid display type — large headings scale down gracefully on small screens */
+@utility text-display-xl {
+  font-size: clamp(2.5rem, 1.4rem + 4.6vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+}
+
+@utility text-display-lg {
+  font-size: clamp(2rem, 1.35rem + 2.6vw, 3.125rem);
+  line-height: 1.08;
+  letter-spacing: -0.024em;
 }
 
 @layer base {
@@ -219,16 +232,8 @@
     inset: 0;
     z-index: -1;
     background:
-      radial-gradient(
-        42rem 42rem at 88% -10%,
-        oklch(0.8354 0.1699 84.5 / 12%),
-        transparent 62%
-      ),
-      radial-gradient(
-        34rem 34rem at -8% 108%,
-        oklch(0.5685 0.1634 146.7 / 12%),
-        transparent 60%
-      );
+      radial-gradient(42rem 42rem at 88% -10%, rgb(252 190 11 / 12%), transparent 62%),
+      radial-gradient(34rem 34rem at -8% 108%, rgb(20 143 53 / 12%), transparent 60%);
   }
 }
 
@@ -256,6 +261,23 @@
   }
 }
 
+/* Accessible skip navigation — becomes visible on first Tab press */
+@utility skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.625rem 0.875rem;
+  background: var(--color-navy);
+  color: var(--color-navy-foreground);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transform: translateY(-300%);
+  &:focus {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -271,4 +293,3 @@
     opacity: 1;
   }
 }
-

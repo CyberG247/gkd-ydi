@@ -27,10 +27,7 @@ export function Logo({ variant = "full", tone = "dark", className }: LogoProps) 
         alt=""
         width={612}
         height={408}
-        className={cn(
-          "w-auto object-contain",
-          variant === "compact" ? "h-10" : "h-12 sm:h-14",
-        )}
+        className={cn("w-auto object-contain", variant === "compact" ? "h-10" : "h-12 sm:h-14")}
       />
     </Link>
   );

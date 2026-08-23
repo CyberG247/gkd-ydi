@@ -8,6 +8,8 @@ import {
   Loader2,
   Lock,
   ShieldCheck,
+  Smartphone,
+  Wallet,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -23,10 +25,14 @@ import {
   CURRENCIES,
   DESIGNATIONS,
   OFFICIAL_ACCOUNT,
+  PAYMENT_METHODS,
+  PROCESSING_LABEL,
   formatAmount,
+  impactPreview,
   makeReference,
   type Currency,
   type DonationFrequency,
+  type PaymentMethod,
 } from "@/lib/donate";
 
 const TITLE = "Donate to GKD-YDI — Support Youth Empowerment in Nigeria";
@@ -53,6 +59,7 @@ function DonatePage() {
   const [currency, setCurrency] = useState<Currency>("USD");
   const [frequency, setFrequency] = useState<DonationFrequency>("one-time");
   const [amount, setAmount] = useState<string>("50");
+  const [method, setMethod] = useState<PaymentMethod>("card");
   const [designation, setDesignation] = useState<string>(DESIGNATIONS[0]);
   const [anonymous, setAnonymous] = useState(false);
   const [status, setStatus] = useState<Status>("form");
@@ -61,6 +68,7 @@ function DonatePage() {
     amount: number;
     currency: Currency;
     frequency: DonationFrequency;
+    method: PaymentMethod;
     designation: string;
     name: string;
     email: string;
@@ -103,6 +111,7 @@ function DonatePage() {
         amount: numericAmount,
         currency,
         frequency,
+        method,
         designation,
         name: anonymous ? "Anonymous supporter" : values["fullName"]!.trim(),
         email: values["email"]!.trim(),
@@ -111,6 +120,8 @@ function DonatePage() {
       toast.success("Donation confirmed. Thank you for supporting GKD-YDI.");
     }, 1900);
   };
+
+  const impact = impactPreview(numericAmount, currency);
 
   return (
     <>
@@ -148,8 +159,15 @@ function DonatePage() {
                 <dl className="mt-8 divide-y divide-border border-y border-border text-sm">
                   {[
                     ["Reference", receipt.reference],
-                    ["Amount", `${formatAmount(receipt.amount, receipt.currency)} ${receipt.currency}`],
+                    [
+                      "Amount",
+                      `${formatAmount(receipt.amount, receipt.currency)} ${receipt.currency}`,
+                    ],
                     ["Frequency", receipt.frequency === "monthly" ? "Monthly" : "One-time"],
+                    [
+                      "Payment method",
+                      PAYMENT_METHODS.find((pm) => pm.id === receipt.method)!.label,
+                    ],
                     ["Designation", receipt.designation],
                     ["Beneficiary", OFFICIAL_ACCOUNT.accountName],
                   ].map(([label, value]) => (
@@ -160,7 +178,7 @@ function DonatePage() {
                   ))}
                 </dl>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row print:hidden">
                   <Button
                     size="lg"
                     variant="accent"
@@ -231,6 +249,47 @@ function DonatePage() {
                 </fieldset>
 
                 <fieldset className="mt-7">
+                  <legend className="text-sm font-semibold text-navy">Payment method</legend>
+                  <div className="mt-3 grid grid-cols-2 gap-2">
+                    {PAYMENT_METHODS.map((pm) => (
+                      <button
+                        key={pm.id}
+                        type="button"
+                        aria-pressed={method === pm.id}
+                        onClick={() => setMethod(pm.id)}
+                        className={cn(
+                          "flex items-start gap-3 border px-3 py-3 text-left transition-colors",
+                          method === pm.id
+                            ? "border-navy bg-navy text-navy-foreground"
+                            : "border-border text-navy/75 hover:border-navy/40",
+                        )}
+                      >
+                        {pm.id === "card" ? (
+                          <CreditCard className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                        ) : pm.id === "transfer" ? (
+                          <Landmark className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                        ) : pm.id === "ussd" ? (
+                          <Smartphone className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                        ) : (
+                          <Wallet className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+                        )}
+                        <span>
+                          <span className="block text-sm font-semibold">{pm.label}</span>
+                          <span
+                            className={cn(
+                              "mt-0.5 block text-xs",
+                              method === pm.id ? "opacity-80" : "text-muted-foreground",
+                            )}
+                          >
+                            {pm.hint}
+                          </span>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <fieldset className="mt-7">
                   <legend className="text-sm font-semibold text-navy">Amount</legend>
                   <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
                     {active.presets.map((preset) => (
@@ -271,6 +330,12 @@ function DonatePage() {
                         className="h-12 w-full bg-transparent pr-3 text-base font-semibold text-navy outline-none tabular-nums"
                       />
                     </div>
+                    {impact ? (
+                      <p className="mt-2.5 flex items-start gap-2 text-xs leading-relaxed text-growth">
+                        <BadgeCheck className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+                        <span>{impact}</span>
+                      </p>
+                    ) : null}
                   </div>
                 </fieldset>
 
@@ -370,8 +435,8 @@ function DonatePage() {
                   >
                     {status === "processing" ? (
                       <>
-                        <Loader2 className="size-4 animate-spin" aria-hidden="true" /> Processing
-                        securely…
+                        <Loader2 className="size-4 animate-spin" aria-hidden="true" />{" "}
+                        {PROCESSING_LABEL[method]}…
                       </>
                     ) : (
                       <>
@@ -384,15 +449,15 @@ function DonatePage() {
                   </Button>
                   <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
                     Demonstration checkout — no card details are requested and no money moves. Once
-                    the organisation connects its payment provider, this same flow will process
-                    live card, transfer and mobile payments.
+                    the organisation connects its payment provider, this same flow will process live
+                    card, transfer and mobile payments.
                   </p>
                 </div>
               </form>
             )}
           </div>
 
-          <aside className="space-y-10">
+          <aside className="space-y-10 print:hidden">
             <div className="border-t-2 border-yellow pt-5">
               <h2 className="text-base font-bold text-navy">Official account</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -403,9 +468,7 @@ function DonatePage() {
                   <Landmark className="mt-0.5 size-5 shrink-0 text-ocean" aria-hidden="true" />
                   <div>
                     <dt className="font-semibold text-navy">Account name</dt>
-                    <dd className="mt-1 text-muted-foreground">
-                      {OFFICIAL_ACCOUNT.accountName}
-                    </dd>
+                    <dd className="mt-1 text-muted-foreground">{OFFICIAL_ACCOUNT.accountName}</dd>
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -468,7 +531,7 @@ function DonatePage() {
         </div>
       </section>
 
-      <section className="bg-mist">
+      <section className="bg-mist print:hidden">
         <div className="container-page py-16 md:py-24">
           <SectionHeader
             eyebrow="Other ways to help"

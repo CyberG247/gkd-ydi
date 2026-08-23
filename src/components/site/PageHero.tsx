@@ -12,17 +12,11 @@ type PageHeroProps = {
   crumbLabel?: string;
 };
 
-export function PageHero({
-  eyebrow,
-  title,
-  description,
-  currentPath,
-  crumbLabel,
-}: PageHeroProps) {
+export function PageHero({ eyebrow, title, description, currentPath, crumbLabel }: PageHeroProps) {
   const current = NAV_ITEMS.find((item) => item.to === currentPath);
 
   return (
-    <section className="radiant-field bg-navy text-white">
+    <section className="radiant-field bg-navy text-white print:hidden">
       <div className="container-page py-16 md:py-24">
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-2 text-xs font-semibold tracking-wide text-white/60">

@@ -16,6 +16,59 @@ export const OFFICIAL_ACCOUNT = {
 
 export type DonationFrequency = "one-time" | "monthly";
 
+export type PaymentMethod = "card" | "transfer" | "ussd" | "mobile-money";
+
+export const PAYMENT_METHODS: {
+  id: PaymentMethod;
+  label: string;
+  hint: string;
+}[] = [
+  { id: "card", label: "Debit / Credit Card", hint: "Visa, Mastercard, Verve" },
+  { id: "transfer", label: "Bank Transfer", hint: "Straight to the official account" },
+  { id: "ussd", label: "USSD", hint: "Give from any phone in seconds" },
+  { id: "mobile-money", label: "Mobile Money", hint: "Opay, PalmPay, MoMo & more" },
+];
+
+export const PROCESSING_LABEL: Record<PaymentMethod, string> = {
+  card: "Authorising your card securely",
+  transfer: "Reserving your transfer reference",
+  ussd: "Confirming your USSD approval",
+  "mobile-money": "Awaiting wallet confirmation",
+};
+
+const IMPACT_TIERS: Record<Currency, { min: number; text: string }[]> = {
+  NGN: [
+    { min: 100000, text: "can help rehabilitate a community water point." },
+    { min: 25000, text: "can seed a starter kit for a young entrepreneur." },
+    { min: 5000, text: "can supply learning materials for one student for a term." },
+    { min: 0, text: "still brings opportunity closer for a young person." },
+  ],
+  USD: [
+    { min: 250, text: "can help rehabilitate a community water point." },
+    { min: 50, text: "can fund a skills-training session for young people." },
+    { min: 10, text: "can provide school supplies for one student." },
+    { min: 0, text: "still brings opportunity closer for a young person." },
+  ],
+  GBP: [
+    { min: 200, text: "can help rehabilitate a community water point." },
+    { min: 40, text: "can fund a skills-training session for young people." },
+    { min: 8, text: "can provide school supplies for one student." },
+    { min: 0, text: "still brings opportunity closer for a young person." },
+  ],
+  EUR: [
+    { min: 250, text: "can help rehabilitate a community water point." },
+    { min: 50, text: "can fund a skills-training session for young people." },
+    { min: 10, text: "can provide school supplies for one student." },
+    { min: 0, text: "still brings opportunity closer for a young person." },
+  ],
+};
+
+export function impactPreview(amount: number, currency: Currency) {
+  if (!Number.isFinite(amount) || amount <= 0) return null;
+  const tier = IMPACT_TIERS[currency]?.find((t) => amount >= t.min) ?? IMPACT_TIERS.NGN.at(-1)!;
+  return `${formatAmount(amount, currency)} ${tier.text}`;
+}
+
 export const DESIGNATIONS = [
   "Where it is needed most",
   "Education & scholarships",

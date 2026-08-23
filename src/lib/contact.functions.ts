@@ -5,7 +5,7 @@ import { contactSchema } from "./contact-schema";
 import { isRateLimited, recordEnquiry } from "./contact.server";
 
 export const submitEnquiry = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => contactSchema.parse(data))
+  .validator((data: unknown) => contactSchema.parse(data))
   .handler(async ({ data }) => {
     const request = getRequest();
     const key =

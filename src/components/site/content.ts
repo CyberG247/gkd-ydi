@@ -58,8 +58,7 @@ export const FOCUS_AREAS: FocusArea[] = [
   },
   {
     title: "Water, Sanitation & Hygiene",
-    description:
-      "Improving access to clean water, sanitation and hygiene across 50 communities.",
+    description: "Improving access to clean water, sanitation and hygiene across 50 communities.",
     icon: Droplets,
     accent: "ocean",
   },

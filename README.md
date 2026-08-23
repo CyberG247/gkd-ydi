@@ -45,8 +45,6 @@ EMPOWERING YOUTH, BUILDING FUTURES
 
 The final product must look like it was designed and engineered by a professional international digital agency — not like a generic template, not like a basic WordPress website, and absolutely not like a typical AI/vibe-coded website.
 
-
-
 1. ORGANIZATION INFORMATION
 
 Use the following information as the authoritative organizational content.
@@ -77,23 +75,17 @@ We are committed to improving the quality of life in 50 communities through bett
 
 Through innovative, community-driven initiatives, we aim to foster a generation of resilient, skilled youth who will lead the region towards sustainable growth, community development, and environmental sustainability.
 
-
-
 2. MISSION
 
 Use this as the official Mission statement:
 
 To empower 10,000 youth in the northeast of Nigeria over the next 5 years by providing education, skills development, and leadership training, ensuring they are equipped for sustainable livelihoods. We are committed to improving access to clean water, sanitation, and hygiene in 50 communities, while also empowering 5,000 young women with the tools to become leaders and change agents. Through innovative and community-driven initiatives, we aim to create a generation of resilient, skilled youth capable of driving social, economic, and environmental transformation across the region.
 
-
-
 3. VISION
 
 Use this as the official Vision statement:
 
 To be a pioneering force in youth empowerment, community development, and environmental sustainability in Nigeria. By 2030, we envision a future where 10,000 empowered youth, including 5,000 young women, are equipped with essential skills for sustainable livelihoods, and where 50 communities have improved access to clean water, sanitation, and hygiene. Our goal is to foster a generation of leaders who will contribute to the prosperity and well-being of their communities, driving social progress and ensuring a cleaner, healthier future for all.
-
-
 
 4. CORE VALUES
 
@@ -122,8 +114,6 @@ elegant hover interactions
 consistent visual hierarchy
 
 Do NOT invent additional organizational values.
-
-
 
 5. BRAND IDENTITY
 
@@ -160,8 +150,6 @@ compact logo where appropriate
 favicon/icon based on the existing emblem
 
 Only create derivatives from the supplied logo. Do not redesign the organization’s identity.
-
-
 
 6. OFFICIAL COLOR SYSTEM
 
@@ -251,8 +239,6 @@ HEX: #FFFFFF
 
 Primary background and negative space.
 
-
-
 7. DESIGN DIRECTION
 
 The website should communicate:
@@ -286,8 +272,6 @@ Avoid “AI-generated website” aesthetics.
 Avoid unnecessary animations.
 
 The website should feel human, credible, purposeful and established.
-
-
 
 8. TYPOGRAPHY
 
@@ -324,8 +308,6 @@ Body copy should use:
 Ensure excellent readability on mobile.
 
 Use generous line height and proper typographic hierarchy.
-
-
 
 9. GLOBAL DESIGN SYSTEM
 
@@ -367,8 +349,6 @@ Maintain generous whitespace.
 
 Do not overcrowd pages.
 
-
-
 10. WEBSITE STRUCTURE
 
 Create the following main navigation:
@@ -394,8 +374,6 @@ Support Our Mission
 or
 
 Get Involved
-
-
 
 11. HOMEPAGE
 
@@ -447,8 +425,6 @@ Do not use stereotypical poverty imagery.
 
 Do not portray beneficiaries in a degrading manner.
 
-
-
 12. IMPACT NUMBERS
 
 Immediately below the hero, create an elegant impact-statistics section.
@@ -479,8 +455,6 @@ Do NOT falsely imply that these targets have already been achieved.
 
 Use subtle count-up animations only if they improve the experience.
 
-
-
 13. INTRODUCTION SECTION
 
 Create a section:
@@ -504,8 +478,6 @@ subtle graphic or relevant image
 Include CTA:
 
 Learn More About GKD-YDI
-
-
 
 14. OUR FOCUS
 
@@ -541,8 +513,6 @@ Supporting innovative, community-driven approaches to sustainable social and eco
 
 Do not invent programs, projects or partnerships that have not been provided.
 
-
-
 15. MISSION + VISION SECTION
 
 Create a visually distinctive section presenting:
@@ -566,8 +536,6 @@ yellow
 green accents
 
 Do not make it text-heavy.
-
-
 
 16. CORE VALUES
 
@@ -598,8 +566,6 @@ subtle hover effect
 Use icons from a professional icon library.
 
 Do not use random emoji.
-
-
 
 17. ABOUT PAGE
 
@@ -637,8 +603,6 @@ Do not fabricate office locations, registration numbers, donors, partners or ins
 
 If registration information is later provided, create a dedicated organizational credentials section.
 
-
-
 18. OUR APPROACH
 
 Create a strong section explaining the organization’s approach.
@@ -666,8 +630,6 @@ Innovative
 Use practical and innovative approaches to solve local challenges.
 
 Do not claim certifications or external endorsements.
-
-
 
 19. IMPACT PAGE
 
@@ -711,8 +673,6 @@ Target
 rather than
 Achieved
 
-
-
 20. GET INVOLVED PAGE
 
 Create a highly compelling page for participation.
@@ -739,8 +699,6 @@ Use CTA cards.
 
 Do not create payment/donation functionality unless a real payment system and verified organization banking information are subsequently provided.
 
-
-
 21. STORIES / NEWS
 
 Create a professional Stories/News section.
@@ -766,8 +724,6 @@ If there is no content yet, create a beautiful empty state:
 Stories from our communities are coming soon.
 
 Include a structure that can later connect to a CMS/database.
-
-
 
 22. CONTACT PAGE
 
@@ -800,8 +756,6 @@ Include appropriate validation and error handling.
 Do not display invented phone numbers, emails or addresses.
 
 Leave placeholders until official contact details are supplied.
-
-
 
 23. FOOTER
 
@@ -839,8 +793,6 @@ Include:
 
 Do not invent legal claims.
 
-
-
 24. NAVIGATION UX
 
 Desktop navigation:
@@ -875,8 +827,6 @@ add subtle background/blur
 
 maintain strong contrast
 
-
-
 25. RESPONSIVE DESIGN
 
 The website must be designed mobile-first.
@@ -908,8 +858,6 @@ No broken layouts.
 No oversized typography on mobile.
 
 Buttons must remain comfortably tappable.
-
-
 
 26. ANIMATION SYSTEM
 
@@ -944,8 +892,6 @@ prefers-reduced-motion
 Never use excessive animations.
 
 The website should still feel excellent when animations are disabled.
-
-
 
 27. IMAGE STRATEGY
 
@@ -1001,8 +947,6 @@ meaningful alt text
 
 appropriate aspect ratios
 
-
-
 28. ACCESSIBILITY
 
 Target:
@@ -1034,8 +978,6 @@ reduced-motion support
 accessible mobile navigation
 
 Never use color alone to communicate information.
-
-
 
 29. SEO
 
@@ -1091,8 +1033,6 @@ appropriate schema markup
 
 Where appropriate, use Organization structured data.
 
-
-
 30. PERFORMANCE
 
 The website must be extremely fast.
@@ -1129,8 +1069,6 @@ Avoid unnecessary libraries.
 
 Do not introduce large dependencies for simple functionality.
 
-
-
 31. SECURITY
 
 Follow modern web security practices.
@@ -1158,8 +1096,6 @@ secure database rules
 sanitized user-generated content
 
 Never expose private credentials in frontend code.
-
-
 
 32. RECOMMENDED TECHNICAL ARCHITECTURE
 
@@ -1210,8 +1146,6 @@ future volunteer applications
 future CMS functionality
 
 Do not over-engineer the backend.
-
-
 
 33. CMS / CONTENT ARCHITECTURE
 
@@ -1273,8 +1207,6 @@ focus areas
 
 The frontend should not require developers to edit code for routine content updates.
 
-
-
 34. ADMIN EXPERIENCE
 
 If an admin dashboard is implemented, it should be completely separate from the public website.
@@ -1315,8 +1247,6 @@ success notifications
 
 The admin interface should be functional but visually consistent with the GKD-YDI brand.
 
-
-
 35. CONTACT FORM EXPERIENCE
 
 When a visitor submits a message:
@@ -1343,8 +1273,6 @@ Error message:
 
 We couldn’t submit your message right now. Please check your information and try again.
 
-
-
 36. EMPTY STATES
 
 Do not leave unfinished sections looking broken.
@@ -1364,8 +1292,6 @@ Impact
 “Impact reporting will be updated as programs are implemented.”
 
 Use elegant empty states rather than fake content.
-
-
 
 37. DO NOT FABRICATE INFORMATION
 
@@ -1413,8 +1339,6 @@ If information has not been supplied, create an appropriate placeholder or omit 
 
 The website must maintain institutional credibility and factual integrity.
 
-
-
 38. MICROCOPY
 
 Use confident but human language.
@@ -1438,8 +1362,6 @@ Prefer language such as:
 “Creating pathways to sustainable livelihoods.”
 
 “Empowering young people to lead change.”
-
-
 
 39. VISUAL DETAILS
 
@@ -1473,8 +1395,6 @@ Do NOT literally repeat the logo everywhere.
 
 The design should feel inspired by the identity without becoming visually repetitive.
 
-
-
 40. HERO VISUAL LANGUAGE
 
 The hero should be visually memorable.
@@ -1494,8 +1414,6 @@ visual
 Create subtle yellow and green accents around the imagery.
 
 Maintain a strong navy foundation.
-
-
 
 41. CTA SYSTEM
 
@@ -1528,8 +1446,6 @@ Outlined Navy/Blue.
 Tertiary:
 Text links.
 
-
-
 42. SOCIAL PROOF
 
 Do NOT fabricate testimonials.
@@ -1544,8 +1460,6 @@ Our Ambition
 2030 vision
 
 This creates credibility without inventing external endorsements.
-
-
 
 43. PAGE TRANSITIONS
 
@@ -1562,8 +1476,6 @@ clarity
 accessibility
 
 professionalism
-
-
 
 44. ERROR PAGES
 
@@ -1585,23 +1497,17 @@ Return Home
 
 Also create graceful loading and error states throughout the application.
 
-
-
 45. COOKIE / PRIVACY ARCHITECTURE
 
 If analytics or third-party services are introduced, architect the website so privacy/consent requirements can be handled appropriately.
 
 Do not add unnecessary tracking scripts.
 
-
-
 46. FOOTER BRAND STATEMENT
 
 Use a concise footer statement:
 
 GKD-YDI works to empower young people, strengthen communities and advance sustainable development across Northeast Nigeria.
-
-
 
 47. DESIGN QUALITY BAR
 
@@ -1626,8 +1532,6 @@ a collection of random cards
 a “vibe-coded” application
 
 Every component must have a clear design reason.
-
-
 
 48. COMPONENT ARCHITECTURE
 
@@ -1675,8 +1579,6 @@ EmptyState
 
 Avoid duplicated UI code.
 
-
-
 49. CODE QUALITY
 
 Write production-quality code.
@@ -1708,8 +1610,6 @@ accessible components
 maintainable architecture
 
 Do not produce a giant single-file application.
-
-
 
 50. FINAL QA
 
@@ -1801,8 +1701,6 @@ organizational facts
 
 no fabricated claims
 
-
-
 51. FINAL VISUAL DIRECTION
 
 The finished website should feel:
@@ -1829,8 +1727,6 @@ Green → Growth & Sustainability
 Blue → Opportunity & Progress
 
 Use white space extensively to prevent the color palette from becoming overwhelming.
-
-
 
 52. MOST IMPORTANT IMPLEMENTATION RULE
 
@@ -1878,8 +1774,6 @@ PHASE 10 — Final Polish
 
 Remove anything that looks generic, unfinished, repetitive or AI-generated.
 
-
-
 53. SUCCESS CRITERIA
 
 The final website should make a first-time visitor immediately understand:
@@ -1905,8 +1799,6 @@ Within approximately 5 seconds, the visitor should understand:
 GKD-YDI is a youth and community development organization working to empower young people and strengthen communities across Northeast Nigeria.
 
 Build the website around this central message.
-
-
 
 FINAL INSTRUCTION
 

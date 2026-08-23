@@ -26,6 +26,10 @@ export const Route = createFileRoute("/our-focus")({
 });
 
 function FocusPage() {
+  const [featureArea, ...supportingAreas] = FOCUS_AREAS;
+
+  if (!featureArea) return null;
+
   return (
     <>
       <PageHero
@@ -37,10 +41,33 @@ function FocusPage() {
 
       <section>
         <div className="container-page py-16 md:py-24">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {FOCUS_AREAS.map((area, index) => (
+          <Reveal>
+            <article className="grid gap-6 border-t-2 border-yellow pt-8 sm:grid-cols-[auto_1fr] sm:gap-10">
+              <span
+                aria-hidden="true"
+                className="text-display-lg font-extrabold text-navy/10 tabular-nums"
+              >
+                01
+              </span>
+              <div className="max-w-2xl">
+                <h2 className="flex items-center gap-3 text-2xl font-extrabold text-navy">
+                  <featureArea.icon
+                    className="size-6 shrink-0 text-ocean"
+                    strokeWidth={1.75}
+                    aria-hidden="true"
+                  />
+                  {featureArea.title}
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  {featureArea.description}
+                </p>
+              </div>
+            </article>
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {supportingAreas.map((area, index) => (
               <Reveal key={area.title} delay={index * 60}>
-                <FocusAreaCard {...area} index={index} />
+                <FocusAreaCard {...area} index={index + 1} />
               </Reveal>
             ))}
           </div>
@@ -83,7 +110,12 @@ function FocusPage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        title="Every focus area begins with the community."
+        description="From skills training to clean water access, you can help widen opportunity where it is needed most."
+        secondaryLabel="Get Involved"
+        secondaryTo="/get-involved"
+      />
     </>
   );
 }

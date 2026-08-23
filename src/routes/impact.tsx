@@ -37,7 +37,8 @@ function ImpactPage() {
 
       <section className="bg-navy">
         <div className="container-page py-16 md:py-20">
-          <ImpactStats />
+          <p className="eyebrow text-yellow">Stated targets</p>
+          <ImpactStats className="mt-8" />
         </div>
       </section>
 
@@ -62,7 +63,10 @@ function ImpactPage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        title="Help turn these targets into results."
+        description="Donations, partnerships and volunteers each play a part in reaching our 2030 commitments."
+      />
     </>
   );
 }

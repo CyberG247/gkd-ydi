@@ -25,13 +25,7 @@ export function SectionHeader({
   const isDark = tone === "dark";
 
   return (
-    <Reveal
-      className={cn(
-        "max-w-3xl",
-        align === "center" && "mx-auto text-center",
-        className,
-      )}
-    >
+    <Reveal className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
         <p
           className={cn(

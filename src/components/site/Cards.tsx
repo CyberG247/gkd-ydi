@@ -53,29 +53,6 @@ export function FocusAreaCard({
   );
 }
 
-export function ValueCard({
-  title,
-  description,
-  icon: Icon,
-}: {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}) {
-  return (
-    <article className="group h-full border-t-2 border-border bg-transparent pt-6 transition-colors duration-300 hover:border-yellow">
-      <span
-        aria-hidden="true"
-        className="grid size-11 place-items-center rounded-sm bg-navy/5 text-navy transition-colors duration-300 group-hover:bg-navy group-hover:text-navy-foreground"
-      >
-        <Icon className="size-5" strokeWidth={1.75} />
-      </span>
-      <h3 className="mt-5 text-base font-bold text-navy">{title}</h3>
-      <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{description}</p>
-    </article>
-  );
-}
-
 export function EmptyState({
   icon: Icon,
   title,

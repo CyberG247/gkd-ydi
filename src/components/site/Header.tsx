@@ -33,7 +33,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b transition-all duration-300",
+        "sticky top-0 z-50 border-b transition-all duration-300 print:hidden",
         scrolled
           ? "border-border bg-background/85 backdrop-blur-md"
           : "border-transparent bg-background",
@@ -66,7 +66,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <Button asChild variant="accent" className="hidden lg:inline-flex">
-            <Link to="/get-involved">Support Our Mission</Link>
+            <Link to="/donate">Donate</Link>
           </Button>
           <Button
             variant="ghost"
@@ -100,7 +100,7 @@ export function Header() {
             </Link>
           ))}
           <Button asChild variant="accent" size="lg" className="mt-5 w-full">
-            <Link to="/get-involved">Support Our Mission</Link>
+            <Link to="/donate">Donate</Link>
           </Button>
         </nav>
       </div>

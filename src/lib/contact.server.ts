@@ -22,7 +22,12 @@ export function isRateLimited(key: string): boolean {
 
 /** Strips control characters so stored/forwarded content stays inert. */
 function sanitize(value: string): string {
-  return value.replace(/[\u0000-\u001f\u007f]/g, " ").trim();
+  let cleaned = "";
+  for (const char of value) {
+    const code = char.codePointAt(0) ?? 0;
+    cleaned += code <= 0x1f || code === 0x7f ? " " : char;
+  }
+  return cleaned.trim();
 }
 
 export async function recordEnquiry(input: ContactInput): Promise<void> {

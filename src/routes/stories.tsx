@@ -44,7 +44,7 @@ function StoriesPage() {
             <EmptyState
               icon={BookOpen}
               title="No stories published yet"
-              description="Reach out if you would like to be notified when new updates and field reports are published."
+              description="Stories from our communities will appear here as GKD-YDI's work develops. Reach out if you would like to be notified when new updates and field reports are published."
             >
               <Button asChild variant="accent">
                 <Link to="/contact">Keep me updated</Link>
@@ -54,7 +54,13 @@ function StoriesPage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        title="Follow the work as it happens."
+        description="Stories will grow as programmes are delivered. In the meantime, see what we are building toward by 2030."
+        primaryLabel="See Our Targets"
+        primaryTo="/impact"
+        secondaryLabel="Get in Touch"
+      />
     </>
   );
 }

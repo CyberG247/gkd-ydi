@@ -1,12 +1,26 @@
 import { Link } from "@tanstack/react-router";
 
 import { Logo } from "@/components/brand/Logo";
-import { NAV_ITEMS, ORG } from "./site-nav";
+import { ORG } from "./site-nav";
+
+const EXPLORE_LINKS = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Our Focus", to: "/our-focus" },
+  { label: "Impact", to: "/impact" },
+];
+
+const ACTION_LINKS = [
+  { label: "Donate", to: "/donate", accent: true },
+  { label: "Volunteer or Partner", to: "/get-involved" },
+  { label: "Stories & Updates", to: "/stories" },
+  { label: "Contact Us", to: "/contact" },
+];
 
 export function Footer() {
   return (
-    <footer className="bg-navy-deep text-white">
-      <div className="container-page grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:py-20">
+    <footer className="bg-navy-deep text-white print:hidden">
+      <div className="container-page grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:py-20">
         <div>
           <Logo tone="light" />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
@@ -18,16 +32,38 @@ export function Footer() {
           </p>
         </div>
 
-        <nav aria-label="Footer">
+        <nav aria-label="Footer explore">
           <h2 className="text-xs font-semibold tracking-[0.16em] text-white/50 uppercase">
             Explore
           </h2>
           <ul className="mt-5 space-y-3">
-            {NAV_ITEMS.map((item) => (
+            {EXPLORE_LINKS.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
                   className="text-sm text-white/75 transition-colors hover:text-yellow"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Take action">
+          <h2 className="text-xs font-semibold tracking-[0.16em] text-white/50 uppercase">
+            Take Action
+          </h2>
+          <ul className="mt-5 space-y-3">
+            {ACTION_LINKS.map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className={
+                    item.accent
+                      ? "inline-flex items-center rounded-sm bg-yellow px-3 py-1.5 text-sm font-bold text-navy-deep transition-colors hover:bg-yellow/85"
+                      : "text-sm text-white/75 transition-colors hover:text-yellow"
+                  }
                 >
                   {item.label}
                 </Link>
