@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { PageHero } from "@/components/site/PageHero";
 import { ORG } from "@/components/site/site-nav";
-import { contactSchema } from "@/lib/contact-schema";
+import { contactSchema, type ContactInput } from "@/lib/contact-schema";
 import { submitEnquiry } from "@/lib/contact.functions";
 
 const TITLE = "Contact GKD-YDI — Get in Touch";
@@ -43,7 +43,7 @@ function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const mutation = useMutation({
-    mutationFn: (data: Record<string, string>) => send({ data } as never),
+    mutationFn: (data: ContactInput) => send({ data }),
     onSuccess: () => {
       toast.success("Message sent. Our team will be in touch shortly.");
       setErrors({});
@@ -117,13 +117,13 @@ function ContactPage() {
                   name="message"
                   rows={6}
                   required
-                  aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-invalid={Boolean(errors["message"])}
+                  aria-describedby={errors["message"] ? "message-error" : undefined}
                   className="mt-2"
                 />
-                {errors.message ? (
+                {errors["message"] ? (
                   <p id="message-error" className="mt-2 text-sm text-destructive">
-                    {errors.message}
+                    {errors["message"]}
                   </p>
                 ) : null}
               </div>
