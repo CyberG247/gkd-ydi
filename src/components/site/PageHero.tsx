@@ -9,9 +9,16 @@ type PageHeroProps = {
   title: string;
   description: ReactNode;
   currentPath: string;
+  crumbLabel?: string;
 };
 
-export function PageHero({ eyebrow, title, description, currentPath }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  description,
+  currentPath,
+  crumbLabel,
+}: PageHeroProps) {
   const current = NAV_ITEMS.find((item) => item.to === currentPath);
 
   return (
@@ -28,7 +35,7 @@ export function PageHero({ eyebrow, title, description, currentPath }: PageHeroP
               <ChevronRight className="size-3.5" />
             </li>
             <li aria-current="page" className="text-yellow">
-              {current?.label ?? title}
+              {crumbLabel ?? current?.label ?? title}
             </li>
           </ol>
         </nav>
