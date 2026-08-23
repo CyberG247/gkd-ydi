@@ -10,6 +10,8 @@ import { ORG } from "@/components/site/site-nav";
 import leadership from "@/assets/leadership.jpg";
 import patronImg from "@/assets/media/patron-dakasko-advisory-1.jpg";
 import sdgGoalsImg from "@/assets/sdg-goals-transparent.png";
+import gkdLogoDark from "@/assets/gkd-logo.png";
+import gkdEmblem from "@/assets/gkd-emblem.png";
 import { PartnersSlider } from "@/components/site/PartnersSlider";
 
 const TITLE = "About GKD-YDI — Mission, Vision and Values";
@@ -58,6 +60,74 @@ function AboutPage() {
               loading="lazy"
             />
           </Reveal>
+        </div>
+      </section>
+
+      {/* Brand Identity & Symbolism */}
+      <section className="border-t border-border bg-card/60">
+        <div className="container-page py-16 md:py-20">
+          <SectionHeader
+            eyebrow="Visual Identity"
+            title="The Symbolism Behind the Official GKD-YDI Emblem"
+            description="Our official logo reflects the core pillars of youth empowerment, community resilience, and sustainable development across Northeast Nigeria."
+          />
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <Reveal>
+              <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-card p-8 text-center shadow-xs">
+                <img
+                  src={gkdLogoDark}
+                  alt="Official GKD Youth Development Initiative Logo"
+                  className="max-h-24 w-auto object-contain"
+                  loading="lazy"
+                />
+                <p className="mt-6 text-xs font-bold tracking-widest text-ocean uppercase">
+                  Official Insignia
+                </p>
+                <p className="mt-1 text-sm font-semibold text-navy">
+                  Gidan Karan Dawa Youth Development Initiatives
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <Reveal delay={60}>
+                <div className="h-full rounded-lg border border-border bg-card p-5 shadow-2xs">
+                  <div className="flex size-9 items-center justify-center rounded bg-yellow/15 text-xs font-bold text-navy">
+                    ☀️
+                  </div>
+                  <h4 className="mt-3 text-sm font-bold text-navy">The Radiant Sun</h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                    Represents the dawn of hope, educational illumination, and the bright future of youth in Northeast Nigeria.
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal delay={120}>
+                <div className="h-full rounded-lg border border-border bg-card p-5 shadow-2xs">
+                  <div className="flex size-9 items-center justify-center rounded bg-ocean/15 text-xs font-bold text-ocean">
+                    🙌
+                  </div>
+                  <h4 className="mt-3 text-sm font-bold text-navy">The Empowered Youth</h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                    Depicts an active youth with raised arms symbolizing leadership, resilience, and civic potential.
+                  </p>
+                </div>
+              </Reveal>
+
+              <Reveal delay={180}>
+                <div className="h-full rounded-lg border border-border bg-card p-5 shadow-2xs">
+                  <div className="flex size-9 items-center justify-center rounded bg-growth/15 text-xs font-bold text-growth">
+                    🌿
+                  </div>
+                  <h4 className="mt-3 text-sm font-bold text-navy">The Twin Leaves</h4>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                    Symbolizes sustainable livelihoods, environmental stewardship, clean WASH access, and community growth.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 

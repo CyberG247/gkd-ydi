@@ -13,6 +13,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { ORG } from "@/components/site/site-nav";
 import { contactSchema, type ContactInput } from "@/lib/contact-schema";
 import { submitEnquiry } from "@/lib/contact.functions";
+import gkdEmblem from "@/assets/gkd-emblem.png";
 
 const TITLE = "Contact GKD-YDI — Get in Touch";
 const DESCRIPTION =
@@ -140,9 +141,21 @@ function ContactPage() {
           </form>
 
           <aside className="space-y-8">
-            <div className="border-t-2 border-yellow pt-5">
-              <h2 className="text-base font-bold text-navy">Organisation</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{ORG.name}</p>
+            <div className="border-t-2 border-yellow bg-card/60 p-6 border border-border">
+              <div className="flex items-center gap-3">
+                <img
+                  src={gkdEmblem}
+                  alt="GKD-YDI Official Emblem"
+                  className="size-11 shrink-0 object-contain"
+                />
+                <div>
+                  <h2 className="text-base font-bold text-navy">{ORG.short} Headquarters</h2>
+                  <p className="text-xs text-muted-foreground">{ORG.city}, {ORG.state}</p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                {ORG.name} ({ORG.motto})
+              </p>
             </div>
             <dl className="space-y-6 text-sm">
               <div className="flex gap-3">

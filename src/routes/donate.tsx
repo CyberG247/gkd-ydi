@@ -34,6 +34,7 @@ import {
   type DonationFrequency,
   type PaymentMethod,
 } from "@/lib/donate";
+import gkdEmblem from "@/assets/gkd-emblem.png";
 
 const TITLE = "Donate to GKD-YDI — Support Youth Empowerment in Nigeria";
 const DESCRIPTION =
@@ -458,8 +459,18 @@ function DonatePage() {
           </div>
 
           <aside className="space-y-10 print:hidden">
-            <div className="border-t-2 border-yellow pt-5">
-              <h2 className="text-base font-bold text-navy">Official account</h2>
+            <div className="border-t-2 border-yellow bg-card/60 p-6 border border-border">
+              <div className="flex items-center gap-3">
+                <img
+                  src={gkdEmblem}
+                  alt="GKD-YDI Official Emblem"
+                  className="size-10 shrink-0 object-contain"
+                />
+                <div>
+                  <h2 className="text-base font-bold text-navy">Official GKD-YDI Account</h2>
+                  <p className="text-[11px] font-semibold text-growth">Verified Non-Profit Designation</p>
+                </div>
+              </div>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Donations are received directly by the organisation. Bank transfers can be sent to:
               </p>
