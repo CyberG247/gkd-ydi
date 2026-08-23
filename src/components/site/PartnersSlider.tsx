@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ShieldCheck, Handshake } from "lucide-react";
-import { PARTNERS } from "@/components/site/partners-data";
+import { ArrowRight, ShieldCheck, Handshake, ExternalLink } from "lucide-react";
+import { PARTNERS, type Partner } from "@/components/site/partners-data";
 import { Reveal } from "@/components/site/Reveal";
 
 interface PartnersSliderProps {
@@ -11,6 +11,67 @@ interface PartnersSliderProps {
 export function PartnersSlider({ className = "", showHeading = true }: PartnersSliderProps) {
   // Repeat partners array to create a seamless infinite horizontal loop (6 partners * 4 = 24 items)
   const repeatedPartners = Array(4).fill(PARTNERS).flat();
+
+  const renderPartnerCard = (partner: Partner, idx: number) => {
+    const cardContent = (
+      <>
+        <div className="flex h-14 w-28 shrink-0 items-center justify-center rounded-lg bg-mist/50 p-2 transition-colors group-hover:bg-mist/80">
+          <img
+            src={partner.logo}
+            alt={`${partner.name} logo`}
+            className="max-h-11 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-108"
+            loading="lazy"
+          />
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-1">
+            <span className="inline-flex items-center gap-1 rounded bg-ocean/10 px-2 py-0.5 text-[10px] font-bold text-ocean">
+              <ShieldCheck className="size-2.5" />
+              {partner.category}
+            </span>
+            {partner.website && (
+              <span className="flex items-center gap-0.5 text-[10px] font-semibold text-ocean transition-transform duration-200 group-hover:translate-x-0.5">
+                Visit <ExternalLink className="size-2.5" />
+              </span>
+            )}
+          </div>
+          <h3 className="mt-1 truncate text-sm font-bold text-navy group-hover:text-ocean transition-colors">
+            {partner.name}
+          </h3>
+          {partner.description && (
+            <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
+              {partner.description}
+            </p>
+          )}
+        </div>
+      </>
+    );
+
+    if (partner.website) {
+      return (
+        <a
+          key={`${partner.id}-${idx}`}
+          href={partner.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`Visit ${partner.name} (${partner.website})`}
+          className="group flex min-w-[280px] sm:min-w-[340px] items-center gap-4 rounded-xl border border-border bg-card p-4.5 shadow-2xs transition-all hover:border-ocean/60 hover:shadow-md cursor-pointer"
+        >
+          {cardContent}
+        </a>
+      );
+    }
+
+    return (
+      <div
+        key={`${partner.id}-${idx}`}
+        className="group flex min-w-[280px] sm:min-w-[340px] items-center gap-4 rounded-xl border border-border bg-card p-4.5 shadow-2xs transition-all hover:border-ocean/40 hover:shadow-md"
+      >
+        {cardContent}
+      </div>
+    );
+  };
 
   return (
     <section
@@ -57,36 +118,7 @@ export function PartnersSlider({ className = "", showHeading = true }: PartnersS
 
         {/* Marquee Track */}
         <div className="marquee-content gap-6 px-4">
-          {repeatedPartners.map((partner, idx) => (
-            <div
-              key={`${partner.id}-${idx}`}
-              className="group flex min-w-[280px] sm:min-w-[340px] items-center gap-4 rounded-xl border border-border bg-card p-4.5 shadow-2xs transition-all hover:border-ocean/40 hover:shadow-md"
-            >
-              <div className="flex h-14 w-28 shrink-0 items-center justify-center rounded-lg bg-mist/50 p-2 transition-colors group-hover:bg-mist/80">
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name} logo`}
-                  className="max-h-11 w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-108"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="min-w-0 flex-1">
-                <span className="inline-flex items-center gap-1 rounded bg-ocean/10 px-2 py-0.5 text-[10px] font-bold text-ocean">
-                  <ShieldCheck className="size-2.5" />
-                  {partner.category}
-                </span>
-                <h3 className="mt-1 truncate text-sm font-bold text-navy group-hover:text-ocean transition-colors">
-                  {partner.name}
-                </h3>
-                {partner.description && (
-                  <p className="mt-0.5 truncate text-[11px] text-muted-foreground">
-                    {partner.description}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
+          {repeatedPartners.map(renderPartnerCard)}
         </div>
       </div>
 

@@ -28,6 +28,7 @@ export const PARTNERS: Partner[] = [
     name: "InnovaTech Consultancy Limited",
     category: "Technology & Cyber Resilience",
     logo: innovatechLogo,
+    website: "https://www.innovatech-ng.com/",
     description:
       "Strategic partner for modern web systems, digital security, and youth tech incubation.",
   },
