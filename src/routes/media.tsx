@@ -29,6 +29,7 @@ import { CTASection } from "@/components/site/CTASection";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Reveal } from "@/components/site/Reveal";
+import { LazyImage } from "@/components/site/LazyImage";
 import {
   MEDIA_UPDATES,
   MEDIA_CATEGORIES,
@@ -302,15 +303,16 @@ function MediaUpdatesPage() {
                     {featuredItem.images.map((img, idx) => (
                       <figure
                         key={idx}
-                        className="group relative cursor-pointer overflow-hidden border border-border bg-muted transition-all hover:border-navy"
+                        className="group relative cursor-pointer overflow-hidden border border-border bg-muted transition-all duration-300 hover:border-navy hover:shadow-md"
                         onClick={() => openGallery(featuredItem.images, idx)}
                       >
-                        <img
+                        <LazyImage
                           src={img.src}
                           alt={img.alt}
-                          className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-103"
+                          aspectRatio="4/3"
+                          zoomOnHover
                         />
-                        <div className="absolute inset-0 flex items-center justify-center bg-navy-deep/0 transition-colors group-hover:bg-navy-deep/40">
+                        <div className="absolute inset-0 flex items-center justify-center bg-navy-deep/0 transition-colors duration-300 group-hover:bg-navy-deep/40 z-10 pointer-events-none">
                           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-bold text-navy opacity-0 shadow-md backdrop-blur-sm transition-all duration-200 group-hover:opacity-100 group-hover:scale-105">
                             <ZoomIn className="size-3.5" />
                             View Full Photo
@@ -361,9 +363,9 @@ function MediaUpdatesPage() {
             </div>
           ) : (
             <div className="mt-12 grid gap-8 md:grid-cols-2">
-              {filteredUpdates.map((item) => (
-                <Reveal key={item.id}>
-                  <article className="flex h-full flex-col justify-between overflow-hidden border border-border bg-card shadow-xs transition-all hover:border-ocean/40 hover:shadow-card">
+              {filteredUpdates.map((item, index) => (
+                <Reveal key={item.id} animation="fade-up" delay={index * 90}>
+                  <article className="group flex h-full flex-col justify-between overflow-hidden border border-border bg-card shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 hover:shadow-card">
                     <div>
                       {/* Image header if available */}
                       {item.images.length > 0 && (
@@ -371,16 +373,17 @@ function MediaUpdatesPage() {
                           className="relative aspect-[16/10] w-full cursor-pointer overflow-hidden bg-muted"
                           onClick={() => openGallery(item.images, 0)}
                         >
-                          <img
+                          <LazyImage
                             src={item.images[0].src}
                             alt={item.images[0].alt}
-                            className="size-full object-cover transition-transform duration-300 hover:scale-103"
+                            aspectRatio="16/10"
+                            zoomOnHover
                           />
-                          <span className="absolute top-3 left-3 inline-flex items-center rounded-sm bg-navy/90 px-2.5 py-1 text-xs font-bold text-white shadow-sm backdrop-blur-xs">
+                          <span className="absolute top-3 left-3 inline-flex items-center rounded-sm bg-navy/90 px-2.5 py-1 text-xs font-bold text-white shadow-sm backdrop-blur-xs z-10">
                             {item.category}
                           </span>
                           {item.images.length > 1 && (
-                            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
+                            <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded bg-black/70 px-2 py-1 text-[11px] font-medium text-white backdrop-blur-xs z-10">
                               +{item.images.length - 1} more photos
                             </span>
                           )}

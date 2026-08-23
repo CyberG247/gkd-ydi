@@ -6,6 +6,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { FOCUS_AREAS } from "@/components/site/content";
+import { LazyImage } from "@/components/site/LazyImage";
 import skills from "@/assets/skills-training.jpg";
 import water from "@/assets/community-water.jpg";
 import sdgGoalsImg from "@/assets/sdg-goals-transparent.png";
@@ -42,7 +43,7 @@ function FocusPage() {
 
       <section>
         <div className="container-page py-16 md:py-24">
-          <Reveal>
+          <Reveal animation="fade-up">
             <article className="grid gap-6 border-t-2 border-yellow pt-8 sm:grid-cols-[auto_1fr] sm:gap-10">
               <span
                 aria-hidden="true"
@@ -67,7 +68,7 @@ function FocusPage() {
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {supportingAreas.map((area, index) => (
-              <Reveal key={area.title} delay={index * 60}>
+              <Reveal key={area.title} animation="fade-up" delay={(index + 1) * 80}>
                 <FocusAreaCard {...area} index={index + 1} />
               </Reveal>
             ))}
@@ -77,36 +78,44 @@ function FocusPage() {
 
       <section className="bg-mist">
         <div className="container-page grid gap-12 py-16 md:py-24 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <img
-              src={skills}
-              alt="Young people learning practical vocational skills"
-              className="w-full border border-border object-cover"
-              loading="lazy"
+          <Reveal animation="fade-right">
+            <div className="overflow-hidden border border-border shadow-md">
+              <LazyImage
+                src={skills}
+                alt="Young people learning practical vocational skills"
+                aspectRatio="4/3"
+                zoomOnHover
+              />
+            </div>
+          </Reveal>
+          <Reveal animation="fade-left" delay={100}>
+            <SectionHeader
+              eyebrow="Skills & Livelihoods"
+              title="Practical skills that lead to sustainable livelihoods."
+              description="Education and skills development sit at the centre of our work, so that young people can translate training into real economic opportunity within their own communities."
             />
           </Reveal>
-          <SectionHeader
-            eyebrow="Skills & Livelihoods"
-            title="Practical skills that lead to sustainable livelihoods."
-            description="Education and skills development sit at the centre of our work, so that young people can translate training into real economic opportunity within their own communities."
-          />
         </div>
       </section>
 
       <section>
         <div className="container-page grid gap-12 py-16 md:py-24 lg:grid-cols-2 lg:items-center">
-          <SectionHeader
-            eyebrow="Water, Sanitation & Hygiene"
-            title="Improving access to clean water in 50 communities."
-            description="Clean water, safe sanitation and good hygiene are foundations for health, school attendance and productivity. Our WASH ambition targets 50 communities."
-          />
-          <Reveal>
-            <img
-              src={water}
-              alt="Community members collecting clean water"
-              className="w-full border border-border object-cover lg:order-first"
-              loading="lazy"
+          <Reveal animation="fade-right">
+            <SectionHeader
+              eyebrow="Water, Sanitation & Hygiene"
+              title="Improving access to clean water in 50 communities."
+              description="Clean water, safe sanitation and good hygiene are foundations for health, school attendance and productivity. Our WASH ambition targets 50 communities."
             />
+          </Reveal>
+          <Reveal animation="fade-left" delay={100}>
+            <div className="overflow-hidden border border-border shadow-md lg:order-first">
+              <LazyImage
+                src={water}
+                alt="Community members collecting clean water"
+                aspectRatio="4/3"
+                zoomOnHover
+              />
+            </div>
           </Reveal>
         </div>
       </section>

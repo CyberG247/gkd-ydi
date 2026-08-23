@@ -7,6 +7,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { APPROACH, CORE_VALUES, MISSION, VISION } from "@/components/site/content";
 import { ORG } from "@/components/site/site-nav";
+import { LazyImage } from "@/components/site/LazyImage";
 import leadership from "@/assets/leadership.jpg";
 import patronImg from "@/assets/media/patron-dakasko-advisory-1.jpg";
 import sdgGoalsImg from "@/assets/sdg-goals-transparent.png";
@@ -44,21 +45,21 @@ function AboutPage() {
 
       <section>
         <div className="container-page grid gap-12 py-16 md:py-24 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:gap-16">
-          <div>
+          <Reveal animation="fade-right">
             <SectionHeader eyebrow="Mission" title="Why we exist." />
-            <Reveal delay={80}>
-              <p className="mt-7 border-l-2 border-yellow pl-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                {MISSION}
-              </p>
-            </Reveal>
-          </div>
-          <Reveal delay={140}>
-            <img
-              src={leadership}
-              alt="Young leaders in a community training session"
-              className="aspect-[4/3] w-full border border-border object-cover"
-              loading="lazy"
-            />
+            <div className="mt-7 border-l-2 border-yellow pl-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {MISSION}
+            </div>
+          </Reveal>
+          <Reveal animation="fade-left" delay={140}>
+            <div className="overflow-hidden border border-border shadow-md">
+              <LazyImage
+                src={leadership}
+                alt="Young leaders in a community training session"
+                aspectRatio="4/3"
+                zoomOnHover
+              />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -351,12 +352,12 @@ function AboutPage() {
               </div>
             </div>
 
-            <div className="relative aspect-[4/3] bg-muted lg:aspect-auto">
-              <img
+            <div className="relative aspect-[4/3] bg-muted lg:aspect-auto overflow-hidden">
+              <LazyImage
                 src={patronImg}
                 alt="Dr. Usman Muhammad Dakasko during the GKD-YDI advisory session"
-                className="size-full object-cover"
-                loading="lazy"
+                containerClassName="size-full"
+                zoomOnHover
               />
             </div>
           </div>

@@ -243,22 +243,169 @@
   background: var(--color-yellow);
 }
 
+/* -------------------------------------------------------------
+ * Professional Keyframe Animation Suite
+ * ------------------------------------------------------------- */
 @keyframes reveal-up {
-  from {
+  0% {
     opacity: 0;
-    transform: translateY(1.25rem);
+    transform: translateY(1.5rem) scale(0.99);
+    filter: blur(4px);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: none;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }
 
-@utility reveal {
-  opacity: 0;
-  &[data-visible="true"] {
-    animation: reveal-up 0.6s var(--ease-brand) forwards;
+@keyframes reveal-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.5rem) scale(0.99);
+    filter: blur(4px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-2rem);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-right {
+  0% {
+    opacity: 0;
+    transform: translateX(2rem);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reveal-fade {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes shimmer-wave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+/* Reveal Utilities */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+  transition: opacity 0.4s ease-out;
+}
+
+.reveal[data-visible="true"] {
+  animation-duration: 0.75s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.reveal-up[data-visible="true"] {
+  animation-name: reveal-up;
+}
+
+.reveal-down[data-visible="true"] {
+  animation-name: reveal-down;
+}
+
+.reveal-left[data-visible="true"] {
+  animation-name: reveal-left;
+}
+
+.reveal-right[data-visible="true"] {
+  animation-name: reveal-right;
+}
+
+.reveal-scale[data-visible="true"] {
+  animation-name: reveal-scale;
+}
+
+.reveal-fade[data-visible="true"] {
+  animation-name: reveal-fade;
+}
+
+/* Shimmer Skeleton Placeholder */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-mist) 0%,
+    rgb(2 63 94 / 6%) 50%,
+    var(--color-mist) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-wave 1.8s infinite ease-in-out;
+}
+
+.float-animation {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.pulse-glow-animation {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 @keyframes marquee-scroll {

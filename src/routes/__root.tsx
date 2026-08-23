@@ -16,6 +16,8 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
+import { ScrollProgressBar } from "@/components/site/ScrollProgressBar";
+import { ScrollToTop } from "@/components/site/ScrollToTop";
 
 function NotFoundComponent() {
   return (
@@ -142,6 +144,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollProgressBar />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -153,6 +156,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <ScrollToTop />
       <Toaster />
     </QueryClientProvider>
   );

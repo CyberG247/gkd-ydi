@@ -10,6 +10,7 @@ import { APPROACH, FOCUS_AREAS, MISSION } from "@/components/site/content";
 import { ORG } from "@/components/site/site-nav";
 import { MEDIA_UPDATES } from "@/components/site/media-data";
 import { PartnersSlider } from "@/components/site/PartnersSlider";
+import { LazyImage } from "@/components/site/LazyImage";
 import heroYouth from "@/assets/hero-youth.jpg";
 
 const TITLE = "GKD-YDI — Empowering Youth, Building Futures in Northeast Nigeria";
@@ -33,7 +34,7 @@ function Index() {
     <>
       <section className="radiant-field relative overflow-hidden bg-navy text-white">
         <div className="container-page grid items-center gap-14 py-16 md:py-24 lg:grid-cols-[1.05fr_0.95fr]">
-          <Reveal>
+          <Reveal animation="fade-right">
             <p className="eyebrow text-yellow">{ORG.motto}</p>
             <h1 className="text-display-xl mt-6 font-extrabold">
               Empowering youth.
@@ -45,12 +46,12 @@ function Index() {
               sanitation and hygiene.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" variant="accent">
+              <Button asChild size="lg" variant="accent" className="group shadow-lift hover:scale-103 transition-transform">
                 <Link to="/donate">
-                  Donate <ArrowRight className="size-4" />
+                  Donate <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outlineLight">
+              <Button asChild size="lg" variant="outlineLight" className="hover:bg-white/10 transition-colors">
                 <Link to="/our-focus">Explore Our Focus</Link>
               </Button>
             </div>
@@ -59,20 +60,23 @@ function Index() {
             </p>
           </Reveal>
 
-          <Reveal delay={120} className="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <Reveal animation="scale-up" delay={120} className="relative mx-auto w-full max-w-xl lg:max-w-none">
             <span
               aria-hidden="true"
-              className="absolute -top-3 -left-3 hidden size-24 border-t-2 border-l-2 border-yellow sm:block"
+              className="absolute -top-3 -left-3 hidden size-24 border-t-2 border-l-2 border-yellow sm:block z-10"
             />
-            <img
-              src={heroYouth}
-              alt="Young people taking part in a community development programme in Northeast Nigeria"
-              className="aspect-[4/3] w-full border border-white/15 object-cover"
-              loading="eager"
-            />
+            <div className="overflow-hidden border border-white/15 shadow-2xl">
+              <LazyImage
+                src={heroYouth}
+                alt="Young people taking part in a community development programme in Northeast Nigeria"
+                aspectRatio="4/3"
+                zoomOnHover
+                loading="eager"
+              />
+            </div>
             <span
               aria-hidden="true"
-              className="absolute -right-3 -bottom-3 hidden h-24 w-40 border-r-2 border-b-2 border-growth sm:block"
+              className="absolute -right-3 -bottom-3 hidden h-24 w-40 border-r-2 border-b-2 border-growth sm:block z-10"
             />
           </Reveal>
         </div>
@@ -93,7 +97,7 @@ function Index() {
             eyebrow="Our Mission"
             title="Equipping a generation to lead its own transformation."
           />
-          <Reveal delay={80}>
+          <Reveal animation="fade-left" delay={80}>
             <p className="border-l-2 border-yellow pl-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
               {MISSION}
             </p>
@@ -109,29 +113,29 @@ function Index() {
               <li key={area.title} className="border-b border-border">
                 <Link
                   to="/our-focus"
-                  className="group -mx-3 grid gap-3 px-3 py-7 transition-colors duration-200 hover:bg-background sm:-mx-4 sm:grid-cols-[2rem_minmax(0,16rem)_1fr_auto] sm:items-center sm:gap-8 sm:px-4"
+                  className="group -mx-3 grid gap-3 px-3 py-7 transition-all duration-300 hover:bg-background hover:pl-5 sm:-mx-4 sm:grid-cols-[2rem_minmax(0,16rem)_1fr_auto] sm:items-center sm:gap-8 sm:px-4"
                 >
                   <span
                     aria-hidden="true"
-                    className="text-sm font-semibold text-muted-foreground/70 tabular-nums"
+                    className="text-sm font-semibold text-muted-foreground/70 tabular-nums transition-colors group-hover:text-ocean"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="flex items-center gap-3">
-                    <area.icon
-                      className="size-5 shrink-0 text-ocean"
-                      strokeWidth={1.75}
+                    <span
                       aria-hidden="true"
-                    />
-                    <span className="text-lg font-bold text-navy sm:text-xl">{area.title}</span>
+                      className="grid size-9 shrink-0 place-items-center rounded-sm bg-navy text-navy-foreground transition-transform duration-300 group-hover:scale-110 group-hover:bg-ocean"
+                    >
+                      <area.icon className="size-4.5" strokeWidth={2} />
+                    </span>
+                    <span className="text-base font-bold text-navy transition-colors group-hover:text-ocean">
+                      {area.title}
+                    </span>
                   </span>
-                  <span className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-                    {area.description}
+                  <p className="text-sm text-muted-foreground line-clamp-2">{area.summary}</p>
+                  <span className="hidden text-sm font-semibold text-ocean sm:inline-flex sm:items-center sm:gap-1 transition-transform group-hover:translate-x-1">
+                    Explore <ArrowRight className="size-4" />
                   </span>
-                  <ArrowRight
-                    aria-hidden="true"
-                    className="hidden size-5 shrink-0 text-navy/30 transition-all duration-200 group-hover:translate-x-1 group-hover:text-navy sm:block"
-                  />
                 </Link>
               </li>
             ))}
@@ -141,12 +145,24 @@ function Index() {
 
       <section>
         <div className="container-page py-16 md:py-24">
-          <SectionHeader eyebrow="Our Approach" title="How we work with communities." />
-          <div className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-            {APPROACH.map((item) => (
-              <Reveal key={item.title}>
-                <div className="border-t-2 border-border pt-5">
-                  <h3 className="text-base font-bold text-navy">{item.title}</h3>
+          <SectionHeader
+            eyebrow="Our Approach"
+            title="Locally rooted, systematically delivered."
+            description="Four working commitments define how GKD-YDI designs programmes, partners with communities and measures change."
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {APPROACH.map((item, index) => (
+              <Reveal key={item.title} animation="fade-up" delay={index * 90}>
+                <div className="group h-full border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-ocean/40 hover:shadow-card">
+                  <span
+                    aria-hidden="true"
+                    className="text-xs font-semibold text-ocean tracking-wider uppercase"
+                  >
+                    0{index + 1}
+                  </span>
+                  <h3 className="mt-3 text-lg font-bold text-navy group-hover:text-ocean transition-colors">
+                    {item.title}
+                  </h3>
                   <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
@@ -173,18 +189,19 @@ function Index() {
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {MEDIA_UPDATES.map((item) => (
-              <Reveal key={item.id}>
-                <article className="group flex h-full flex-col justify-between overflow-hidden border border-border bg-card transition-all hover:border-navy/40 hover:shadow-card">
+            {MEDIA_UPDATES.map((item, idx) => (
+              <Reveal key={item.id} animation="fade-up" delay={idx * 120}>
+                <article className="group flex h-full flex-col justify-between overflow-hidden border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-navy/40 hover:shadow-card">
                   <div>
                     {item.images.length > 0 && (
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
-                        <img
+                        <LazyImage
                           src={item.images[0].src}
                           alt={item.images[0].alt}
-                          className="size-full object-cover transition-transform duration-300 group-hover:scale-103"
+                          aspectRatio="16/10"
+                          zoomOnHover
                         />
-                        <span className="absolute top-3 left-3 rounded-sm bg-navy/90 px-2.5 py-1 text-xs font-bold text-white shadow-sm backdrop-blur-xs">
+                        <span className="absolute top-3 left-3 rounded-sm bg-navy/90 px-2.5 py-1 text-xs font-bold text-white shadow-sm backdrop-blur-xs z-10">
                           {item.category}
                         </span>
                       </div>
