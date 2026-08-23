@@ -8,6 +8,8 @@ import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { APPROACH, FOCUS_AREAS, MISSION } from "@/components/site/content";
 import { ORG } from "@/components/site/site-nav";
+import { MEDIA_UPDATES } from "@/components/site/media-data";
+import { PartnersSlider } from "@/components/site/PartnersSlider";
 import heroYouth from "@/assets/hero-youth.jpg";
 
 const TITLE = "GKD-YDI — Empowering Youth, Building Futures in Northeast Nigeria";
@@ -154,6 +156,67 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <section>
+        <div className="container-page py-16 md:py-24">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <SectionHeader
+              eyebrow="Media & Updates"
+              title="Latest announcements and field reports."
+              description="Stay informed on our strategic advisories, stakeholder partnerships, and community milestones."
+            />
+            <Button asChild variant="outline" className="self-start sm:self-end">
+              <Link to="/media">
+                View All Media <ArrowRight className="size-4 ml-1" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {MEDIA_UPDATES.map((item) => (
+              <Reveal key={item.id}>
+                <article className="group flex h-full flex-col justify-between overflow-hidden border border-border bg-card transition-all hover:border-navy/40 hover:shadow-card">
+                  <div>
+                    {item.images.length > 0 && (
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                        <img
+                          src={item.images[0].src}
+                          alt={item.images[0].alt}
+                          className="size-full object-cover transition-transform duration-300 group-hover:scale-103"
+                        />
+                        <span className="absolute top-3 left-3 rounded-sm bg-navy/90 px-2.5 py-1 text-xs font-bold text-white shadow-sm backdrop-blur-xs">
+                          {item.category}
+                        </span>
+                      </div>
+                    )}
+                    <div className="p-6 md:p-7">
+                      <p className="text-xs font-semibold text-ocean">
+                        {item.formattedDate} &middot; {item.location}
+                      </p>
+                      <h3 className="mt-2.5 text-xl font-bold text-navy group-hover:text-ocean transition-colors">
+                        <Link to="/media">{item.title}</Link>
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">
+                        {item.summary}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="border-t border-border bg-mist/30 px-6 py-4">
+                    <Link
+                      to="/media"
+                      className="inline-flex items-center text-xs font-bold text-navy hover:text-ocean transition-colors"
+                    >
+                      Read full report <ArrowRight className="ml-1.5 size-3.5" />
+                    </Link>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <PartnersSlider />
 
       <CTASection
         title="Building opportunity through youth empowerment."

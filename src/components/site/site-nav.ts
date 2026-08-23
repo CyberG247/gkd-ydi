@@ -5,7 +5,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "About", to: "/about" },
   { label: "Our Focus", to: "/our-focus" },
   { label: "Impact", to: "/impact" },
-  { label: "Stories", to: "/stories" },
+  { label: "Media & Updates", to: "/media" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -17,4 +17,5 @@ export const ORG = {
   region: "Northeast Nigeria",
   state: "Yobe State",
   city: "Damaturu",
+  patron: "Dr. Usman Muhammad Dakasko (Dean, Faculty of Education, Yobe State University)",
 } as const;

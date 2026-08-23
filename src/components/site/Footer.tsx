@@ -13,7 +13,7 @@ const EXPLORE_LINKS = [
 const ACTION_LINKS = [
   { label: "Donate", to: "/donate", accent: true },
   { label: "Volunteer or Partner", to: "/get-involved" },
-  { label: "Stories & Updates", to: "/stories" },
+  { label: "Media & Updates", to: "/media" },
   { label: "Contact Us", to: "/contact" },
 ];
 
@@ -77,6 +77,14 @@ export function Footer() {
             Organisation
           </h2>
           <dl className="mt-5 space-y-4 text-sm">
+            <div>
+              <dt className="text-white/50">Patron</dt>
+              <dd className="mt-1 font-medium text-white/90">
+                <Link to="/media" className="hover:text-yellow transition-colors">
+                  Dr. Usman Muhammad Dakasko
+                </Link>
+              </dd>
+            </div>
             <div>
               <dt className="text-white/50">Founded</dt>
               <dd className="mt-1 text-white/85">{ORG.founded}</dd>

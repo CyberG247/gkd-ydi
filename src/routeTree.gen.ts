@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as MediaRouteImport } from './routes/media'
 import { Route as OurFocusRouteImport } from './routes/our-focus'
 import { Route as StoriesRouteImport } from './routes/stories'
 
@@ -48,6 +49,11 @@ const ImpactRoute = ImpactRouteImport.update({
   path: '/impact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OurFocusRoute = OurFocusRouteImport.update({
   id: '/our-focus',
   path: '/our-focus',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/get-involved': typeof GetInvolvedRoute
   '/impact': typeof ImpactRoute
+  '/media': typeof MediaRoute
   '/our-focus': typeof OurFocusRoute
   '/stories': typeof StoriesRoute
 }
@@ -76,6 +83,7 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/get-involved': typeof GetInvolvedRoute
   '/impact': typeof ImpactRoute
+  '/media': typeof MediaRoute
   '/our-focus': typeof OurFocusRoute
   '/stories': typeof StoriesRoute
 }
@@ -87,6 +95,7 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/get-involved': typeof GetInvolvedRoute
   '/impact': typeof ImpactRoute
+  '/media': typeof MediaRoute
   '/our-focus': typeof OurFocusRoute
   '/stories': typeof StoriesRoute
 }
@@ -99,6 +108,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/get-involved'
     | '/impact'
+    | '/media'
     | '/our-focus'
     | '/stories'
   fileRoutesByTo: FileRoutesByTo
@@ -109,6 +119,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/get-involved'
     | '/impact'
+    | '/media'
     | '/our-focus'
     | '/stories'
   id:
@@ -119,6 +130,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/get-involved'
     | '/impact'
+    | '/media'
     | '/our-focus'
     | '/stories'
   fileRoutesById: FileRoutesById
@@ -130,6 +142,7 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   ImpactRoute: typeof ImpactRoute
+  MediaRoute: typeof MediaRoute
   OurFocusRoute: typeof OurFocusRoute
   StoriesRoute: typeof StoriesRoute
 }
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ImpactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/our-focus': {
       id: '/our-focus'
       path: '/our-focus'
@@ -202,6 +222,7 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   ImpactRoute: ImpactRoute,
+  MediaRoute: MediaRoute,
   OurFocusRoute: OurFocusRoute,
   StoriesRoute: StoriesRoute,
 }

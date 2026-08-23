@@ -8,6 +8,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { FOCUS_AREAS } from "@/components/site/content";
 import skills from "@/assets/skills-training.jpg";
 import water from "@/assets/community-water.jpg";
+import sdgGoalsImg from "@/assets/sdg-goals-transparent.png";
 
 const TITLE = "Our Focus Areas — Youth, Skills, Leadership and WASH | GKD-YDI";
 const DESCRIPTION =
@@ -107,6 +108,84 @@ function FocusPage() {
               loading="lazy"
             />
           </Reveal>
+        </div>
+      </section>
+
+      {/* UN Sustainable Development Goals Alignment Section */}
+      <section className="border-t border-border bg-mist">
+        <div className="container-page py-16 md:py-24">
+          <SectionHeader
+            eyebrow="Global Alignment"
+            title="Our Vision and Mission are Aligned to the United Nations Sustainable Development Goals"
+            description="Our focus areas are intentionally designed to contribute directly toward the United Nations 2030 Sustainable Development Goals (SDGs) for human capital growth and resilient communities."
+          />
+
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div className="space-y-4">
+              <div className="rounded border border-border bg-card p-5 shadow-2xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded bg-[#C5192D] px-2.5 py-0.5 text-xs font-bold text-white uppercase">
+                    SDG 4: Quality Education
+                  </span>
+                  <span className="rounded bg-[#FF3A21] px-2.5 py-0.5 text-xs font-bold text-white uppercase">
+                    SDG 5: Gender Equality
+                  </span>
+                </div>
+                <h4 className="mt-3 text-base font-bold text-navy">
+                  Youth & Female Educational Empowerment
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Equipping 10,000 youth, including 5,000 young women, with digital literacy,
+                  classroom tutoring, and CBT training.
+                </p>
+              </div>
+
+              <div className="rounded border border-border bg-card p-5 shadow-2xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded bg-[#26BDE2] px-2.5 py-0.5 text-xs font-bold text-white uppercase">
+                    SDG 6: Clean Water & Sanitation
+                  </span>
+                </div>
+                <h4 className="mt-3 text-base font-bold text-navy">
+                  WASH Infrastructure in 50 Communities
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Delivering sustainable access to clean water and sanitation to build healthier,
+                  disease-resilient communities.
+                </p>
+              </div>
+
+              <div className="rounded border border-border bg-card p-5 shadow-2xs">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded bg-[#A21942] px-2.5 py-0.5 text-xs font-bold text-white uppercase">
+                    SDG 8: Decent Work
+                  </span>
+                  <span className="rounded bg-[#19486A] px-2.5 py-0.5 text-xs font-bold text-white uppercase">
+                    SDG 17: Partnerships for the Goals
+                  </span>
+                </div>
+                <h4 className="mt-3 text-base font-bold text-navy">
+                  Sustainable Livelihoods & Strategic Alliances
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  Building cross-sector collaborations with educational institutions, youth bodies,
+                  and technology consultants.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card p-6 shadow-sm">
+              <img
+                src={sdgGoalsImg}
+                alt="United Nations Sustainable Development Goals"
+                className="w-full max-w-md object-contain"
+                loading="lazy"
+              />
+              <p className="mt-4 text-center text-xs font-semibold text-muted-foreground">
+                United Nations Sustainable Development Goals — 2030 Agenda
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

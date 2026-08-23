@@ -261,6 +261,32 @@
   }
 }
 
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 65s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
 /* Accessible skip navigation — becomes visible on first Tab press */
 @utility skip-link {
   position: fixed;
