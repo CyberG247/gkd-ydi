@@ -65,11 +65,11 @@ function Index() {
               aria-hidden="true"
               className="absolute -top-3 -left-3 hidden size-24 border-t-2 border-l-2 border-yellow sm:block z-10"
             />
-            <div className="overflow-hidden border border-white/15 shadow-2xl">
+            <div className="overflow-hidden border border-white/15 shadow-2xl rounded-sm">
               <LazyImage
                 src={heroYouth}
-                alt="Young people taking part in a community development programme in Northeast Nigeria"
-                aspectRatio="4/3"
+                alt="GKD Youth Development Initiative team and youth beneficiaries during a vocational equipment distribution ceremony in Northeast Nigeria"
+                aspectRatio="3/2"
                 zoomOnHover
                 loading="eager"
               />
