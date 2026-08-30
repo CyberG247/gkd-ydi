@@ -17,5 +17,6 @@ export const ORG = {
   region: "Northeast Nigeria",
   state: "Yobe State",
   city: "Damaturu",
+  founder: "Engnr. Adamu Bulama Musa, MNSE",
   patron: "Dr. Usman Muhammad Dakasko (Dean, Faculty of Education, Yobe State University)",
 } as const;

@@ -14,6 +14,7 @@ import sdgGoalsImg from "@/assets/sdg-goals-transparent.png";
 import gkdLogoDark from "@/assets/gkd-logo.png";
 import gkdEmblem from "@/assets/gkd-emblem.png";
 import { PartnersSlider } from "@/components/site/PartnersSlider";
+import { FounderSection } from "@/components/site/FounderSection";
 
 const TITLE = "About GKD-YDI — Mission, Vision and Values";
 const DESCRIPTION =
@@ -312,12 +313,15 @@ function AboutPage() {
         </div>
       </section>
 
+      {/* Executive Leadership: About the Founder */}
+      <FounderSection className="border-t border-border" />
+
       {/* Patron & Advisory Leadership Section */}
       <section className="border-t border-border bg-background">
         <div className="container-page py-16 md:py-24">
           <SectionHeader
-            eyebrow="Leadership & Governance"
-            title="Guided by seasoned regional leadership."
+            eyebrow="Advisory Council"
+            title="Strategic advisory and institutional patronage."
             description="Our patron and advisory council provide strategic direction, ethical governance, and mission alignment."
           />
 

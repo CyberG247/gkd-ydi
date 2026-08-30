@@ -164,3 +164,85 @@ export const PATHWAYS: Pathway[] = [
     action: "Amplify our work",
   },
 ];
+
+export type AcademicBackground = {
+  qualification: string;
+  institution: string;
+  discipline: string;
+  status?: string;
+};
+
+export type CredentialBadge = {
+  label: string;
+  shortLabel: string;
+  organization: string;
+  description?: string;
+};
+
+export type FounderProfile = {
+  name: string;
+  fullNameWithCredentials: string;
+  role: string;
+  title: string;
+  bio: string;
+  credentials: CredentialBadge[];
+  academics: AcademicBackground[];
+  donorPartnerships: string[];
+  focusPillars: string[];
+};
+
+export const FOUNDER_PROFILE: FounderProfile = {
+  name: "Engnr. Adamu Bulama Musa",
+  fullNameWithCredentials: "Engnr. Adamu Bulama Musa, MNSE",
+  role: "Founder & Visionary Leader",
+  title: "Chief Civil & Water Resources Engineer & Project Management Specialist",
+  bio: "Engnr. Adamu Bulama Musa is a seasoned Civil and Water Resources Engineer and Project Management Specialist with extensive leadership experience in large-scale public infrastructure, sustainable water systems, and donor-funded development projects (including initiatives with USAID, EU, and AfDB). As the visionary founder of GKD-YDI, he combines technical rigor, sustainable project governance, and community-driven impact to foster long-term growth and institutional development.",
+  credentials: [
+    {
+      label: "COREN Registered Engineer",
+      shortLabel: "COREN",
+      organization: "Council for the Regulation of Engineering in Nigeria",
+      description: "Statutory engineering licensure and professional practice certification in Nigeria.",
+    },
+    {
+      label: "Member, Nigerian Society of Engineers",
+      shortLabel: "MNSE",
+      organization: "Nigerian Society of Engineers",
+      description: "Corporate professional membership upholding high engineering standards.",
+    },
+    {
+      label: "Project Management Specialist",
+      shortLabel: "MSc PM (UK)",
+      organization: "University of Salford, Manchester, UK",
+      description: "Advanced global project governance, risk management & infrastructure delivery.",
+    },
+  ],
+  academics: [
+    {
+      qualification: "PhD Candidate in Project Management",
+      discipline: "Project Management & Sustainable Systems",
+      institution: "Abubakar Tafawa Balewa University (ATBU)",
+      status: "In Progress / Doctoral Research",
+    },
+    {
+      qualification: "MSc in Project Management",
+      discipline: "Project Governance, Strategy & Execution",
+      institution: "University of Salford, Manchester, United Kingdom",
+      status: "Master of Science",
+    },
+    {
+      qualification: "B.Eng. in Civil and Water Resources Engineering",
+      discipline: "Civil Engineering, Water Resources & Hydrology",
+      institution: "University of Maiduguri (UNIMAID)",
+      status: "Bachelor of Engineering",
+    },
+  ],
+  donorPartnerships: ["USAID", "European Union (EU)", "African Development Bank (AfDB)"],
+  focusPillars: [
+    "Public Infrastructure Delivery",
+    "Sustainable WASH & Water Systems",
+    "Donor-Funded Project Governance",
+    "Youth Empowerment & Capacity Building",
+  ],
+};
+

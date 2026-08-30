@@ -132,7 +132,7 @@ function Index() {
                       {area.title}
                     </span>
                   </span>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{area.summary}</p>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{area.description}</p>
                   <span className="hidden text-sm font-semibold text-ocean sm:inline-flex sm:items-center sm:gap-1 transition-transform group-hover:translate-x-1">
                     Explore <ArrowRight className="size-4" />
                   </span>
