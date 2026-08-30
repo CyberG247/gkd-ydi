@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ExternalLink } from "lucide-react";
 
 import { Logo } from "@/components/brand/Logo";
 import { ORG } from "./site-nav";
@@ -37,13 +38,13 @@ export function Footer() {
             Explore
           </h2>
           <ul className="mt-5 space-y-3">
-            {EXPLORE_LINKS.map((item) => (
-              <li key={item.to}>
+            {EXPLORE_LINKS.map((link) => (
+              <li key={link.to}>
                 <Link
-                  to={item.to}
+                  to={link.to}
                   className="text-sm text-white/75 transition-colors hover:text-yellow"
                 >
-                  {item.label}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -55,17 +56,17 @@ export function Footer() {
             Take Action
           </h2>
           <ul className="mt-5 space-y-3">
-            {ACTION_LINKS.map((item) => (
-              <li key={item.to}>
+            {ACTION_LINKS.map((link) => (
+              <li key={link.to}>
                 <Link
-                  to={item.to}
+                  to={link.to}
                   className={
-                    item.accent
+                    link.accent
                       ? "inline-flex items-center rounded-sm bg-yellow px-3 py-1.5 text-sm font-bold text-navy-deep transition-colors hover:bg-yellow/85"
                       : "text-sm text-white/75 transition-colors hover:text-yellow"
                   }
                 >
-                  {item.label}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -103,17 +104,18 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-3 py-6 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 {ORG.name}. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
             <p>A registered non-governmental organisation in Northeast Nigeria.</p>
             <span className="hidden text-white/30 sm:inline">&middot;</span>
             <a
               href="https://www.innovatech-ng.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-white/75 transition-colors hover:text-yellow hover:underline underline-offset-2"
-              title="Visit InnovaTech Consultancy Limited"
+              className="group inline-flex items-center gap-1 font-semibold text-yellow transition-all duration-200 hover:text-white hover:underline underline-offset-4 decoration-yellow"
+              title="Visit InnovaTech Consultancy Limited (opens in new tab)"
             >
-              Crafted &amp; Designed by InnovaTech
+              <span>Crafted &amp; Designed by InnovaTech</span>
+              <ExternalLink className="size-3 text-yellow transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
             </a>
           </div>
         </div>
