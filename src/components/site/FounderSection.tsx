@@ -9,8 +9,8 @@ import {
   Globe2,
   Mail,
   ShieldCheck,
-  Sparkles,
   ArrowRight,
+  User,
   UserCheck,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -57,47 +57,24 @@ export function FounderSection({
           <div className="h-1.5 w-full bg-gradient-to-r from-navy via-ocean to-yellow" />
 
           <div className="grid gap-10 p-6 sm:p-8 md:p-12 lg:grid-cols-[0.88fr_1.12fr] lg:gap-14 lg:p-14">
-            {/* Left Column: Executive Credentials & Governance Highlights */}
+            {/* Left Column: Founder Photo Placeholder & Key Highlights */}
             <Reveal animation="fade-right" className="flex flex-col justify-between">
               <div>
-                {/* Executive Identity Card */}
-                <div className="rounded-xl border border-border bg-gradient-to-br from-navy to-navy-deep p-6 sm:p-8 text-white shadow-md relative overflow-hidden">
-                  {/* Subtle Background Glow Elements */}
-                  <div className="absolute -right-8 -bottom-8 size-36 rounded-full bg-yellow/10 blur-2xl pointer-events-none" />
-                  <div className="absolute -left-8 -top-8 size-36 rounded-full bg-ocean/20 blur-2xl pointer-events-none" />
+                {/* Photo Placeholder Frame */}
+                <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+                  {/* Subtle Geometric Corner Accents */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-2.5 -left-2.5 z-10 hidden size-12 border-t-2 border-l-2 border-yellow sm:block"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute -right-2.5 -bottom-2.5 z-10 hidden size-12 border-r-2 border-b-2 border-ocean sm:block"
+                  />
 
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-yellow/20 border border-yellow/30 px-3 py-1 text-xs font-bold text-yellow">
-                        <Sparkles className="size-3.5" />
-                        {role}
-                      </span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] font-semibold text-white/80">
-                        COREN &bull; MNSE
-                      </span>
-                    </div>
-
-                    <div className="mt-6 flex items-center gap-4">
-                      {/* Stylized Executive Monogram Badge */}
-                      <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow to-amber-500 text-navy-deep shadow-inner font-extrabold text-xl tracking-wider border border-white/20">
-                        ABM
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-white tracking-tight sm:text-2xl">
-                          {fullNameWithCredentials}
-                        </h4>
-                        <p className="mt-1 text-xs text-white/70 font-medium">
-                          Chief Civil & Water Resources Engineer
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 border-t border-white/15 pt-4">
-                      <p className="text-xs leading-relaxed text-white/80">
-                        Visionary founder advancing regional infrastructure resilience, sustainable
-                        WASH access, and civic empowerment for youth across Yobe State.
-                      </p>
-                    </div>
+                  {/* Clean Minimalist Photo Placeholder */}
+                  <div className="flex aspect-square w-full items-center justify-center rounded-xl border-2 border-dashed border-border bg-mist/60 text-muted-foreground/35 shadow-2xs">
+                    <User className="size-24 stroke-[1.2] text-muted-foreground/35" />
                   </div>
                 </div>
 
