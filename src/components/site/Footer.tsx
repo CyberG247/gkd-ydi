@@ -89,6 +89,28 @@ export function Footer() {
               </dd>
             </div>
             <div>
+              <dt className="text-white/50">Email</dt>
+              <dd className="mt-1">
+                <a
+                  href={`mailto:${ORG.email}`}
+                  className="text-white/85 transition-colors hover:text-yellow break-all"
+                >
+                  {ORG.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-white/50">Phone</dt>
+              <dd className="mt-1">
+                <a
+                  href={`tel:${ORG.phone}`}
+                  className="text-white/85 transition-colors hover:text-yellow"
+                >
+                  {ORG.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt className="text-white/50">Enquiries</dt>
               <dd className="mt-1">
                 <Link to="/contact" className="text-yellow hover:underline">

@@ -19,4 +19,6 @@ export const ORG = {
   city: "Damaturu",
   founder: "Engnr. Adamu Bulama Musa, MNSE",
   patron: "Dr. Usman Muhammad Dakasko (Dean, Faculty of Education, Yobe State University)",
+  email: "Gkdyouthdevelopmentinitiatives@gmail.com",
+  phone: "07062470332",
 } as const;

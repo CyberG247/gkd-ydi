@@ -79,6 +79,8 @@ const structuredData = {
   foundingDate: "2025-09-17",
   description:
     "Youth development organisation working across Northeast Nigeria on education, skills, leadership development and access to clean water, sanitation and hygiene.",
+  email: ORG.email,
+  telephone: ORG.phone,
   address: {
     "@type": "PostalAddress",
     addressLocality: ORG.city,

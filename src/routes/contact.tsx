@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -177,9 +177,28 @@ function ContactPage() {
               <div className="flex gap-3">
                 <Mail className="mt-0.5 size-5 shrink-0 text-ocean" aria-hidden="true" />
                 <div>
-                  <dt className="font-semibold text-navy">Enquiries</dt>
-                  <dd className="mt-1 text-muted-foreground">
-                    Use the form and we will reply by email.
+                  <dt className="font-semibold text-navy">Email</dt>
+                  <dd className="mt-1">
+                    <a
+                      href={`mailto:${ORG.email}`}
+                      className="text-muted-foreground transition-colors hover:text-navy hover:underline break-all"
+                    >
+                      {ORG.email}
+                    </a>
+                  </dd>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Phone className="mt-0.5 size-5 shrink-0 text-ocean" aria-hidden="true" />
+                <div>
+                  <dt className="font-semibold text-navy">Phone</dt>
+                  <dd className="mt-1">
+                    <a
+                      href={`tel:${ORG.phone}`}
+                      className="text-muted-foreground transition-colors hover:text-navy hover:underline"
+                    >
+                      {ORG.phone}
+                    </a>
                   </dd>
                 </div>
               </div>
