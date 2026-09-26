@@ -14,18 +14,17 @@ const TODAY = new Date().toISOString().split("T")[0];
 
 // The 5 core pages requested for Google indexing
 const topPages = [
-  { path: "/", priority: "1.0", changefreq: "weekly", title: "Home" },
-  { path: "/about", priority: "0.9", changefreq: "monthly", title: "About Us" },
-  { path: "/our-focus", priority: "0.9", changefreq: "monthly", title: "Our Focus" },
-  { path: "/media", priority: "0.8", changefreq: "weekly", title: "Media & Updates" },
-  { path: "/contact", priority: "0.8", changefreq: "monthly", title: "Contact" },
+  { path: "/", priority: "1.0", changefreq: "weekly" },
+  { path: "/about", priority: "0.9", changefreq: "monthly" },
+  { path: "/our-focus", priority: "0.9", changefreq: "monthly" },
+  { path: "/media", priority: "0.8", changefreq: "weekly" },
+  { path: "/contact", priority: "0.8", changefreq: "monthly" },
 ];
 
 export function generateSitemap() {
   const xmlEntries = topPages
     .map(
-      (entry) => `  <!-- ${entry.title} -->
-  <url>
+      (entry) => `  <url>
     <loc>${BASE_URL}${entry.path === "/" ? "/" : entry.path}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
