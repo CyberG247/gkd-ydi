@@ -70,12 +70,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const SITE_URL = "https://www.gkd-ydi.com.ng";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "NGO",
   name: ORG.name,
   alternateName: ORG.short,
   slogan: ORG.motto,
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.png`,
   foundingDate: "2025-09-17",
   description:
     "Youth development organisation working across Northeast Nigeria on education, skills, leadership development and access to clean water, sanitation and hygiene.",
@@ -94,12 +98,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "robots", content: "index, follow" },
       { title: "GKD-YDI — Empowering Youth, Building Futures" },
       {
         name: "description",
         content:
           "Gidan Karan Dawa Youth Development Initiatives (GKD-YDI) empowers young people in Northeast Nigeria through education, skills, leadership and clean water access.",
       },
+      { property: "og:site_name", content: "GKD-YDI" },
       { property: "og:title", content: "GKD-YDI — Empowering Youth, Building Futures" },
       {
         property: "og:description",
@@ -107,6 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Youth-led development for a resilient Northeast Nigeria — education, skills, leadership and WASH access in Yobe State.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -115,6 +122,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "canonical", href: SITE_URL },
+      { rel: "sitemap", type: "application/xml", href: "/sitemap.xml" },
     ],
   }),
   shellComponent: RootShell,

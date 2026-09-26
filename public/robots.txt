@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Google & Search Engine Sitemap
+Sitemap: https://www.gkd-ydi.com.ng/sitemap.xml
