@@ -98,6 +98,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "google-site-verification",
+        content: "orrn1dkP3GZJEXUSD-GhmS3vJfkAJoaYk8qC4xE4Heo",
+      },
       { name: "robots", content: "index, follow" },
       { title: "GKD-YDI — Empowering Youth, Building Futures" },
       {
