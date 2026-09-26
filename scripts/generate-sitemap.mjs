@@ -7,6 +7,7 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
 const publicDir = path.join(rootDir, "public");
 const sitemapPath = path.join(publicDir, "sitemap.xml");
+const sitemapIndexPath = path.join(publicDir, "sitemap_index.xml");
 
 // Production domain verified for GKD-YDI
 const BASE_URL = (process.env.SITE_URL || "https://www.gkd-ydi.com.ng").replace(/\/+$/, "");
@@ -44,7 +45,8 @@ ${xmlEntries}
   }
 
   fs.writeFileSync(sitemapPath, sitemapXml.trim() + "\n", "utf8");
-  console.log(`[sitemap] Successfully generated 5 pages sitemap for ${BASE_URL} at ${sitemapPath}`);
+  fs.writeFileSync(sitemapIndexPath, sitemapXml.trim() + "\n", "utf8");
+  console.log(`[sitemap] Successfully generated 5 pages sitemap for ${BASE_URL} at ${sitemapPath} and ${sitemapIndexPath}`);
 }
 
 generateSitemap();
